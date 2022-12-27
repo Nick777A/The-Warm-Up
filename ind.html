@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Word Counter</title>
+	<style>
+		body{
+			display: flex;
+			background-color: rgb(198, 122, 85);
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+		#text-input{
+			width: 500px;
+			height:100px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="randomBackground()">Random Background</button>
+    <h1>Word Counter</h1>
+    <p>Enter some text in the text box below and click the "Count" button to see the number of letters, words, and sentences in the text:</p>
+    <textarea id="text-input"></textarea>
+    <br>
+    <button onclick="countWords()">Count</button>
+    <br>
+    <br>
+    <p>Letters: <span id="num-letters"></span></p>
+    <p>Words: <span id="num-words"></span></p>
+    <p>Sentences: <span id="num-sentences"></span></p>
+    <script>
+        function countWords() {
+            var text = document.getElementById("text-input").value;
+
+            var numLetters = text.length;
+
+            var numWords = text.split(" ").length;
+
+            var numSentences = text.split(".").length - 1;
+
+            document.getElementById("num-letters").innerHTML = numLetters;
+            document.getElementById("num-words").innerHTML = numWords;
+            document.getElementById("num-sentences").innerHTML = numSentences;
+        }
+		function randomBackground() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        var color = "rgb(" + r + "," + g + "," + b + ")";
+
+        document.body.style.backgroundColor = color;
+    }
+    </script>
+</body>
+</html>
